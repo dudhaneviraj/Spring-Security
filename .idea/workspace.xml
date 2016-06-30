@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19d3340b-2d17-45d5-8edc-855b388a5753" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/security/controller/ExceptionHandlerController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_1_3_5_RELEASE.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SpringSecurity.iml" afterPath="$PROJECT_DIR$/SpringSecurity.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/auth/MyUserDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/auth/MyUserDetailsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/auth/SecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/auth/SecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/model/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/model/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/security/model/UserRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/security/model/UserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" />
-    </list>
+    <list default="true" id="19d3340b-2d17-45d5-8edc-855b388a5753" name="Default" comment="" />
     <ignored path="SpringSecurity.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -942,12 +927,12 @@
       <workItem from="1465195778263" duration="162000" />
       <workItem from="1465421843325" duration="62000" />
       <workItem from="1466123491473" duration="105000" />
-      <workItem from="1467268440220" duration="6992000" />
+      <workItem from="1467268440220" duration="7114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42578000" />
+    <option name="totallyTimeSpent" value="42700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
