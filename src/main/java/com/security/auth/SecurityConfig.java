@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
@@ -31,10 +32,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/user").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/api/*").hasAuthority("USER")
+                .anyRequest()
+                .authenticated()
                 .and()
-                .formLogin().permitAll();
+                .formLogin().loginPage("/login")
+                .permitAll();
     }
 }

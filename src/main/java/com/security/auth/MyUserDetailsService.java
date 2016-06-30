@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+import com.security.model.User;
 import com.security.model.UserDao;
 import com.security.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -27,15 +26,14 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     @Override
-    public UserDetails loadUserByUsername(final String username)
-            throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
 
+        User user = userDao.findByUsername(username);
 
-        System.out.println("ssssssssssssssssssssssssssssssssssssss"+username);
-
-     com.security.model.User user = userDao.findByUsername("Viraj");
+        if (user == null)
+            throw new UsernameNotFoundException("Username Not Found!");
 
         List<GrantedAuthority> authorities =
                 buildUserAuthority(user.getUserRole());
@@ -44,11 +42,8 @@ public class MyUserDetailsService implements UserDetailsService {
 
     }
 
-    // Converts com.mkyong.users.model.User user to
-    // org.springframework.security.core.userdetails.User
-    private User buildUserForAuthentication(com.security.model.User user,
-                                            List<GrantedAuthority> authorities) {
-        return new User(user.getUsername(), user.getPassword(),
+    private org.springframework.security.core.userdetails.User buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
                 user.isEnabled(), true, true, true, authorities);
     }
 
@@ -56,10 +51,8 @@ public class MyUserDetailsService implements UserDetailsService {
 
         Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 
-        // Build user's authorities
-        for (UserRole userRole : userRoles) {
+        for (UserRole userRole : userRoles)
             setAuths.add(new SimpleGrantedAuthority(userRole.getRole()));
-        }
 
         List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
 
