@@ -18,6 +18,7 @@ public class UserRole{
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "username", nullable = false)
     private User user;
+
     private String role;
     public UserRole() {
     }

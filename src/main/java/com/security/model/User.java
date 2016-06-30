@@ -1,10 +1,10 @@
 package com.security.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.hibernate.annotations.BatchSize;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,12 +13,13 @@ import java.util.Set;
 @Entity
 @Table(name = "users", catalog = "test", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class User {
+
     @Id
     private String username;
     private String password;
+
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean enabled;
-
-
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)

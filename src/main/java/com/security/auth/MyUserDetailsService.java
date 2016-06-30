@@ -9,6 +9,7 @@ import java.util.Set;
 import com.security.model.UserDao;
 import com.security.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -20,9 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("userDetailsService")
+@Configurable
 public class MyUserDetailsService implements UserDetailsService {
 
-    //get user from the database, via Hibernate
     @Autowired
     private UserDao userDao;
 
@@ -31,7 +32,11 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(final String username)
             throws UsernameNotFoundException {
 
-     com.security.model.User user = userDao.findByusername(username);
+
+        System.out.println("ssssssssssssssssssssssssssssssssssssss"+username);
+
+     com.security.model.User user = userDao.findByUsername("Viraj");
+
         List<GrantedAuthority> authorities =
                 buildUserAuthority(user.getUserRole());
 
